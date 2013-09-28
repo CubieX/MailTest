@@ -1,0 +1,21 @@
+name: MailTest
+main: com.github.CubieX.MailTest.MailTest
+author: CubieX
+softdepend: [PermissionsEx, zPermissions, bPermissions, PermissionsBukkit]
+version: 0.0.1
+description: Exchange data between two servers
+
+commands:
+    mt:
+      description: Using MailTest
+      usage: /mt version | reload | send
+
+permissions:
+    mailtest.use:
+        description: Use normal commands
+        default: op
+    mailtest.admin:
+        description: Allows use of all commands and effects
+        default: op
+        children:
+          mailtest.use: true

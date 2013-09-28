@@ -1,0 +1,16 @@
+# Do NOT change the config version!
+config_version: 1
+# Set locale for user dialog messages
+language: de
+# Enable debug output
+debug: false
+# SMTP host name (e.g. mail.arcor.de)
+smtpHostName: my.smtp.host
+# userName for mail account of given smtp host
+userName: none
+# Password for given user mail account
+password: none
+# senders email address
+senderMailAddress: me@host.com
+# receivers email address
+receiverMailAddress: you@otherhost.com
