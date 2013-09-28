@@ -7,10 +7,10 @@ debug: false
 # SMTP host name (e.g. mail.arcor.de)
 smtpHostName: my.smtp.host
 # userName for mail account of given smtp host
-userName: none
+userName: 'none'
 # Password for given user mail account
-password: none
+password: 'none'
 # senders email address
-senderMailAddress: me@host.com
+senderMailAddress: 'me@host.com'
 # receivers email address
-receiverMailAddress: you@otherhost.com
+receiverMailAddress: 'you@otherhost.com'
