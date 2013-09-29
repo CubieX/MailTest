@@ -4,7 +4,10 @@ config_version: 1
 language: de
 # Enable debug output
 debug: false
-# SMTP host name (e.g. mail.arcor.de)
+#
+# eMail host options
+#
+# SMTP host name (e.g. mail.arcor.de) for sending eMail
 smtpHostName: my.smtp.host
 # userName for mail account of given smtp host
 userName: 'none'
@@ -14,3 +17,15 @@ password: 'none'
 senderMailAddress: 'me@host.com'
 # receivers email address
 receiverMailAddress: 'you@otherhost.com'
+# 
+# eMail2SMS Gateway options
+#
+# eMail2SMS gateway mail address
+# Needed for sending SMS via eMail
+mail2smsGateway: 'email2sms@gateway.de'
+# eMail2SMS gateway user key (needed for sms77.de)
+# ensures that a valid sender issued the sms
+mail2smsGatewayKey: 'mykey'
+# mobile phone number of receiver
+smsReceiverNumber: '012398765432'
+

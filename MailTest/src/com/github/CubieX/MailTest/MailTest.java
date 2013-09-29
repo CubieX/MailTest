@@ -32,7 +32,11 @@ public class MailTest extends JavaPlugin
    static String userName = " ";             // mail account on given host
    static String password = " ";             // password for given mail account
    static String senderMailAddress = " ";    // address to send FROM
-   static String receiverMailAddress = " ";  // address to send TO
+   static String receiverMailAddress = " ";  // address to send TO -> must match the given mail2sms gateway hosts setup if SMS function is used
+   
+   static String mail2smsGateway = " ";      // gateway to convert email to SMS
+   static String mail2smsGatewayKey = " ";   // key for gateway to ensure issuing sender is valid -> setup at given gateway host
+   static String smsReceiverNumber = " ";    // mobile phone number of receiver of the SMS
 
    //*************************************************
    static String usedConfigVersion = "1"; // Update this every time the config file version changes, so the plugin knows, if there is a suiting config present
@@ -86,12 +90,19 @@ public class MailTest extends JavaPlugin
       boolean invalid = false;
 
       if(getConfig().isSet("debug")){debug = getConfig().getBoolean("debug");}else{invalid = true;}
+      
+      // mail options
       if(getConfig().isSet("smtpHostName")){smtpHostName = getConfig().getString("smtpHostName");}else{invalid = true;}
       if(getConfig().isSet("userName")){userName = getConfig().getString("userName");}else{invalid = true;}
       if(getConfig().isSet("password")){password = getConfig().getString("password");}else{invalid = true;}
       if(getConfig().isSet("senderMailAddress")){senderMailAddress = getConfig().getString("senderMailAddress");}else{invalid = true;}
       if(getConfig().isSet("receiverMailAddress")){receiverMailAddress = getConfig().getString("receiverMailAddress");}else{invalid = true;}
-
+      
+      // mail2SMS options
+      if(getConfig().isSet("mail2smsGateway")){mail2smsGateway = getConfig().getString("mail2smsGateway");}else{invalid = true;}
+      if(getConfig().isSet("mail2smsGatewayKey")){mail2smsGatewayKey = getConfig().getString("mail2smsGatewayKey");}else{invalid = true;}
+      if(getConfig().isSet("smsReceiverNumber")){smsReceiverNumber = getConfig().getString("smsReceiverNumber");}else{invalid = true;}
+     
       if(exceed)
       {
          log.warning(logPrefix + "One or more config values are exceeding their allowed range. Please check your config file!");

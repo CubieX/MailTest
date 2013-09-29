@@ -3,12 +3,12 @@ main: com.github.CubieX.MailTest.MailTest
 author: CubieX
 softdepend: [PermissionsEx, zPermissions, bPermissions, PermissionsBukkit]
 version: 0.0.1
-description: Exchange data between two servers
+description: Send eMails and SMS
 
 commands:
     mt:
       description: Using MailTest
-      usage: /mt version | reload | send
+      usage: /mt version | reload | sendmail | sendsms
 
 permissions:
     mailtest.use:

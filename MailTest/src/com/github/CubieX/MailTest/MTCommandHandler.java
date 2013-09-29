@@ -56,7 +56,7 @@ public class MTCommandHandler implements CommandExecutor
                }
             }
 
-            if (args[0].equalsIgnoreCase("send"))
+            if (args[0].equalsIgnoreCase("sendmail"))
             {
                if(sender.isOp() || sender.hasPermission("mailtest.use"))
                {                  
@@ -65,6 +65,20 @@ public class MTCommandHandler implements CommandExecutor
                else
                {
                   sender.sendMessage(ChatColor.RED + "You do not have sufficient permission to send eMails!");
+               }
+
+               return true;
+            }
+            
+            if (args[0].equalsIgnoreCase("sendsms"))
+            {
+               if(sender.isOp() || sender.hasPermission("mailtest.use"))
+               {                  
+                  mailHandler.sendSMSAsync(sender);
+               }
+               else
+               {
+                  sender.sendMessage(ChatColor.RED + "You do not have sufficient permission to send SMS!");
                }
 
                return true;
