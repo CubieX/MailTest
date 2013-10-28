@@ -28,16 +28,25 @@ public class MailTest extends JavaPlugin
    
    // config values
    static boolean debug = false;
+   // email
    static String smtpHostName = " ";         // every valid host where given user has access to will work.
    static String userName = " ";             // mail account on given host
    static String password = " ";             // password for given mail account
    static String senderMailAddress = " ";    // address to send FROM
    static String receiverMailAddress = " ";  // address to send TO -> must match the given mail2sms gateway hosts setup if SMS function is used
    
-   static String mail2smsGateway = " ";      // gateway to convert email to SMS
+   // email2sms
+   /*static String mail2smsGateway = " ";      // gateway to convert email to SMS
    static String mail2smsGatewayKey = " ";   // key for gateway to ensure issuing sender is valid -> setup at given gateway host
-   static String smsReceiverNumber = " ";    // mobile phone number of receiver of the SMS
-
+   static String smsReceiverNumber = " ";    // mobile phone number of receiver of the SMS*/
+   
+   // SMS via HTTP GET request
+   static String gatewayURL = " ";           // main URL of HTTP gateway to send the request to
+   static String gatewayUser = " ";          // Username for given gateway host
+   static String gatewayPassword = " ";      // Password for given gateway host
+   static String smsSenderName = " ";        // name of the sender to show in first line of SMS (message may be 160 - length of this name - 2 characters long)
+   static String smsReceiverNumber = " ";    // mobile phone number of receiver of the SMS*/
+      
    //*************************************************
    static String usedConfigVersion = "1"; // Update this every time the config file version changes, so the plugin knows, if there is a suiting config present
    //*************************************************
@@ -99,10 +108,19 @@ public class MailTest extends JavaPlugin
       if(getConfig().isSet("receiverMailAddress")){receiverMailAddress = getConfig().getString("receiverMailAddress");}else{invalid = true;}
       
       // mail2SMS options
-      if(getConfig().isSet("mail2smsGateway")){mail2smsGateway = getConfig().getString("mail2smsGateway");}else{invalid = true;}
+      /*if(getConfig().isSet("mail2smsGateway")){mail2smsGateway = getConfig().getString("mail2smsGateway");}else{invalid = true;}
       if(getConfig().isSet("mail2smsGatewayKey")){mail2smsGatewayKey = getConfig().getString("mail2smsGatewayKey");}else{invalid = true;}
-      if(getConfig().isSet("smsReceiverNumber")){smsReceiverNumber = getConfig().getString("smsReceiverNumber");}else{invalid = true;}
+      if(getConfig().isSet("smsReceiverNumber")){smsReceiverNumber = getConfig().getString("smsReceiverNumber");}else{invalid = true;}*/
      
+      // SMS via HTTP request
+      if(getConfig().isSet("gatewayURL")){gatewayURL = getConfig().getString("gatewayURL");}else{invalid = true;}
+      if(getConfig().isSet("gatewayUser")){gatewayUser = getConfig().getString("gatewayUser");}else{invalid = true;}
+      if(getConfig().isSet("gatewayPassword")){gatewayPassword = getConfig().getString("gatewayPassword");}else{invalid = true;}
+      if(getConfig().isSet("smsSenderName")){smsSenderName = getConfig().getString("smsSenderName");}else{invalid = true;}
+      if(getConfig().isSet("smsReceiverNumber")){smsReceiverNumber = getConfig().getString("smsReceiverNumber");}else{invalid = true;}
+      
+      if(debug){log.info(userName + "|" + password + "|" + smtpHostName + "|" + senderMailAddress + "|" + receiverMailAddress + "|" + /*mail2smsGateway + "|" + mail2smsGatewayKey + "|" + */ smsSenderName + "|" + smsReceiverNumber + "|" + gatewayURL + "|" + gatewayUser + "|" + gatewayPassword);}
+      
       if(exceed)
       {
          log.warning(logPrefix + "One or more config values are exceeding their allowed range. Please check your config file!");

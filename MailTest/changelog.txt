@@ -1,4 +1,9 @@
 Changelog for MailTest by CubieX
 --------------------------------
+
+V.0.0.2
+- sending eMails now working
+- sending SMS via HTTP request now working
+
 V.0.0.1
 - Initial Alpha version

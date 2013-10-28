@@ -13,19 +13,22 @@ smtpHostName: my.smtp.host
 userName: 'none'
 # Password for given user mail account
 password: 'none'
-# senders email address
+# Senders email address
 senderMailAddress: 'me@host.com'
-# receivers email address
+# Receivers email address
 receiverMailAddress: 'you@otherhost.com'
-# 
-# eMail2SMS Gateway options
 #
-# eMail2SMS gateway mail address
-# Needed for sending SMS via eMail
-mail2smsGateway: 'email2sms@gateway.de'
-# eMail2SMS gateway user key (needed for sms77.de)
-# ensures that a valid sender issued the sms
-mail2smsGatewayKey: 'mykey'
+# HTTP Request options
+#
+# Gateway URL
+gatewayURL: 'https://myGateway.smsService.de/'
+# Gateway username
+gatewayUser: 'User'
+# Gateway password (may be delivered in raw text or (preferred) as md5 string
+# (for security reasons)
+gatewayPassword: 'Password'
+# Name of sender of SMS. CAUTION: The length of this name +2 chars will be
+# subtracted from the 160 character limit of a message.
+smsSenderName: 'ServerName'
 # mobile phone number of receiver
 smsReceiverNumber: '012398765432'
-

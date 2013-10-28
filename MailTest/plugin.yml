@@ -2,7 +2,7 @@ name: MailTest
 main: com.github.CubieX.MailTest.MailTest
 author: CubieX
 softdepend: [PermissionsEx, zPermissions, bPermissions, PermissionsBukkit]
-version: 0.0.1
+version: 0.0.2
 description: Send eMails and SMS
 
 commands:
